@@ -8,11 +8,8 @@ use Illuminate\Support\Str;
 
 class PostTest extends TestCase
 {
-    /**
-     * Test lowercase
-     * 
-     * @return void
-     */
+
+    //Test lowercase     
     public function test_set_name_in_lowercase()
     {
         $post = new Post;
@@ -30,7 +27,7 @@ class PostTest extends TestCase
         self::assertEquals(Str::of($post->name)->slug(), $post->slug);
     }
 
-    //Test url
+    //Test add url
     public function test_get_href()
     {
         $post = new Post();

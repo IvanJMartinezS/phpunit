@@ -7,17 +7,15 @@ use PHPUnit\Framework\TestCase;
 
 class EmailTest extends TestCase
 {
-    /**
-     * Test email validation
-     *
-     * @return void
-     */
+    //Test email validation     
     public function testEmail()
     {
-        $result = Email::validate('admin@admin.com');
-        $this->assertTrue($result);
 
-        $result = Email::validate('admin2@admin@com');
-        $this->assertFalse($result);
+        $result = Email::validate('admin@admin.com'); //new email
+        $this->assertTrue($result); //Validate if $result is email
+
+
+        $result = Email::validate('admin2@admin@com'); //new email
+        $this->assertFalse($result); //Validate if $result is not email
     }
 }

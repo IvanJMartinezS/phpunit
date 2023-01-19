@@ -8,17 +8,15 @@ use Tests\TestCase;
 
 class PageTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    //Test welcome view
     public function testHome()
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
     }
+
+    //Test about view
     public function testAbout()
     {
         $response = $this->get('about');

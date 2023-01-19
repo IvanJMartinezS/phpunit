@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    //Upload Photo
     public function upload(Request $request){
 
         $request->validate([

@@ -11,14 +11,10 @@ class UserTest extends TestCase
 {
     use RefreshDatabase; // "migrate"
 
-    /**
-     * Test Users in Database
-     *
-     * @return void
-     */
+    //Test Users in Database
     public function testUser()
     {
-        // create user
+        //New user -> email
         User::factory()->create([
             'email' => 'admin@admin.com'
         ]);

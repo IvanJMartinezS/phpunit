@@ -11,30 +11,26 @@ use Illuminate\Support\Facades\Storage; //here upload files
 
 class ProfileTest extends TestCase
 {
-    /**
-     * Test upload photo
-     *
-     * @return void
-     */
+    //Test upload photo
     public function testUpload()
     {
-        Storage::fake('local');
+        Storage::fake('local'); //image fake
 
         $response = $this->post('profile', [
             'photo' => $photo = UploadedFile::fake( )->image('photo.png')
         ]);
 
+        //validate file in storage
         $this->assertTrue(Storage::disk('local')->exists("profiles/{$photo->hashName()}"));
 
-        $response->assertRedirect('profile');
+        $response->assertRedirect('profile'); //Validate redirect to profile view
     }
 
     //Test Error photo
     public function test_photo_required(){
 
-        $response = $this->post('profile', ['photo'=> '']);
+        $response = $this->post('profile', ['photo'=> '']); //add empty photo
 
-        $response->assertSessionHasErrors('photo');
-
+        $response->assertSessionHasErrors('photo'); //validate return error
     }
 }

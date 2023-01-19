@@ -6,17 +6,13 @@ use PHPUnit\Framework\TestCase;
 
 class FunctionsTest extends TestCase
 {
-    /**
-     * Test Email (function)
-     *
-     * @return void
-     */
+    //Test Email (function)
     public function testEmail()
     {
-        $result = validate_email('admin@admin.com');
-        $this->assertTrue($result);
+        $result = validate_email('admin@admin.com'); //new email
+        $this->assertTrue($result); //Validate if $result is email
 
-        $result = validate_email('admin@admin@com');
-        $this->assertFalse($result);
+        $result = validate_email('admin@admin@com'); //new email
+        $this->assertFalse($result); //Validate if $result is not email
     }
 }
